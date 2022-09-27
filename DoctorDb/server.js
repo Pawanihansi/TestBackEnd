@@ -25,6 +25,11 @@ const bodyParser = require("body-parser");
     console.log("Mongodb Connection success!");
  })
 
+ const doctorRouter = require("./routes./doctors.js");
+
+ app.use("./doctor",doctorRouter);
+
+
  app.listen(PORT,()=>{
     console.log(`Server is up and running on port number: ${PORT}`)
  })
