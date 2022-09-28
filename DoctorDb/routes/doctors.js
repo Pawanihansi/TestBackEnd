@@ -21,7 +21,7 @@ router.route("./add").post((req,res) =>{
 
 })
 
-router.route("/").get((req,res)=>{
+router.route("/").get((req,res)=>{   
     Doctor.find().then((doctors)=>{
         res.json(doctors)
     }).catch((err)=>{
@@ -29,5 +29,25 @@ router.route("/").get((req,res)=>{
     })
 
 })
+
+router.route("/update/:id").put(async(req,res)=>{
+    let userId = req.params.id; 
+    const {name,age,gender,NIC}= req.body;
+
+    const updateDoctors = {
+        name,
+        age,
+        gender,
+        NIC
+    }
+const update = await Doctor.findByIdAndUpdate (userId,updateDoctors).then(()=>{
+res.status(200).send({status:"User Update", user: update})
+}).catch((err)=>{
+    console.log(err);
+    res.status(500).send({status:"Error with updating data", error: err.message});
+})
+
+})
+
 
 module.exports = router;
