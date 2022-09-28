@@ -25,7 +25,7 @@ const bodyParser = require("body-parser");
     console.log("Mongodb Connection success!");
  })
 
- const doctorRouter = require("./routes./doctors.js");
+ const doctorRouter = require("./routes/doctors.js");
 
  app.use("./doctor",doctorRouter);
 
