@@ -15,7 +15,7 @@ const doctorSchema =new Schema({
         type : String,
         required : true
     },
-    NIC : {
+    nic : {
         type : Number,
         required : true
     }

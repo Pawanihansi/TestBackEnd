@@ -16,7 +16,7 @@ const bodyParser = require("body-parser");
  mongoose.connect(URL,{
     /*useCreateIndex:true,
     useNewUrlParser:true,
-    useUnifiedTopologyL:true,
+    useUnifiedTopologyL:true, 
     useFindAndModify:false*/
  });
 
@@ -27,9 +27,10 @@ const bodyParser = require("body-parser");
 
  const doctorRouter = require("./routes/doctors.js");
 
- app.use("./doctor",doctorRouter);
+ app.use("/doctor",doctorRouter);
 
 
  app.listen(PORT,()=>{
     console.log(`Server is up and running on port number: ${PORT}`)
  })
+ 
